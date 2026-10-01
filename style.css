@@ -1,0 +1,619 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f0,
+            #ffe5e5,
+            #fce1e1
+        );
+
+    color: #4a3040;
+
+    overflow-x: hidden;
+}
+
+
+/* =================================
+   FIRST SCREEN
+================================= */
+
+.container {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+
+.welcome-card {
+    width: 100%;
+    max-width: 430px;
+
+    background: rgba(255,255,255,0.96);
+
+    padding: 45px 25px;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 40px
+        rgba(150, 70, 70, 0.15);
+}
+
+
+.big-emoji {
+    font-size: 65px;
+
+    margin-bottom: 20px;
+
+    animation:
+        floating
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+.welcome-card h1 {
+    font-size: 34px;
+
+    color: #d63333;
+
+    margin-bottom: 12px;
+}
+
+
+.welcome-card p {
+    font-size: 18px;
+
+    margin-bottom: 25px;
+
+    color: #765454;
+}
+
+
+.welcome-card h2 {
+    font-size: 20px;
+
+    margin-bottom: 30px;
+
+    color: #543434;
+}
+
+
+/* =================================
+   BUTTONS
+================================= */
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+button {
+    border: none;
+
+    padding: 13px 28px;
+
+    border-radius: 30px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.yes-button {
+    background: #d63333;
+
+    color: white;
+
+    box-shadow:
+        0 6px 15px
+        rgba(214, 51, 51, 0.25);
+}
+
+
+.yes-button:hover {
+    transform: scale(1.08);
+
+    background: #c22525;
+}
+
+
+.no-button {
+    background: #eeeeee;
+
+    color: #555;
+
+    z-index: 100;
+}
+
+
+/* =================================
+   FADE
+================================= */
+
+.fade-out {
+    opacity: 0;
+
+    transform: scale(0.95);
+}
+
+
+/* =================================
+   BIRTHDAY SCREEN
+================================= */
+
+.birthday-screen {
+    display: none;
+
+    min-height: 100vh;
+
+    padding: 40px 15px 70px;
+
+    text-align: center;
+}
+
+
+.birthday-content {
+    width: 100%;
+
+    max-width: 650px;
+
+    margin: auto;
+}
+
+
+.top-emoji {
+    font-size: 28px;
+
+    margin-bottom: 20px;
+
+    animation:
+        floating
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+.birthday-screen h1 {
+    font-size: 42px;
+
+    color: #d63333;
+
+    margin-bottom: 10px;
+}
+
+
+.birthday-screen > .birthday-content > h2 {
+    font-size: 26px;
+
+    color: #704444;
+
+    margin-bottom: 40px;
+}
+
+
+.birthday-show {
+    animation:
+        birthdayReveal
+        1s
+        ease forwards;
+}
+
+
+/* =================================
+   PHOTOS
+================================= */
+
+.photos-container {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 30px;
+
+    margin-top: 20px;
+}
+
+
+.photo-card {
+    width: 300px;
+
+    max-width: 85vw;
+
+    background: white;
+
+    padding: 10px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(80, 30, 30, 0.18);
+
+    opacity: 0;
+
+    transform:
+        scale(0.5)
+        rotate(-8deg);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.photo-card:nth-child(2) {
+    transform:
+        scale(0.5)
+        rotate(8deg);
+}
+
+
+.photo-card:nth-child(3) {
+    transform:
+        scale(0.5)
+        rotate(-5deg);
+}
+
+
+.photo-card.photo-show {
+    opacity: 1;
+
+    transform:
+        scale(1)
+        rotate(0deg);
+}
+
+
+.photo-card img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    border-radius: 10px;
+}
+
+
+/* =================================
+   MOLECULE PHOTO
+================================= */
+
+#puzzleSection {
+    display: none;
+
+    width: 100%;
+
+    margin-top: 65px;
+}
+
+
+.puzzle-title {
+    color: #d63333;
+
+    font-size: 25px;
+
+    margin-bottom: 8px;
+}
+
+
+.puzzle-subtitle {
+    color: #8a6576;
+
+    font-size: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+#particleContainer {
+    position: relative;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.2);
+}
+
+
+#particleCanvas {
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+#finalPuzzleImage {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: fill;
+
+    border-radius: 18px;
+
+    opacity: 0;
+
+    transition:
+        opacity 1.3s ease;
+
+    z-index: 1;
+}
+
+
+#finalPuzzleImage.show {
+    opacity: 1;
+}
+
+
+/* =================================
+   MUSIC BUTTON
+================================= */
+
+.music-button {
+    position: fixed;
+
+    right: 18px;
+
+    bottom: 18px;
+
+    z-index: 10000;
+
+    display: none;
+
+    background: #d63333;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.2);
+}
+
+
+/* =================================
+   MESSAGE
+================================= */
+
+#message {
+    display: none;
+
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: 70px auto 0;
+
+    padding: 30px 25px;
+
+    background:
+        rgba(255,255,255,0.92);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(90, 30, 30, 0.15);
+
+    text-align: left;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+    color: #573b4b;
+}
+
+
+#message p {
+    margin-bottom: 22px;
+}
+
+
+#message p:first-child {
+    text-align: center;
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    color: #d63333;
+}
+
+
+.bottom-emoji {
+    font-size: 28px;
+
+    margin-top: 35px;
+
+    text-align: center;
+}
+
+
+/* =================================
+   CONFETTI
+================================= */
+
+.confetti {
+    position: fixed;
+
+    top: -60px;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    animation:
+        confettiFall
+        linear
+        forwards;
+}
+
+
+@keyframes confettiFall {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(1);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(115vh)
+            rotate(360deg)
+            scale(0.7);
+
+        opacity: 0;
+    }
+}
+
+
+/* =================================
+   ANIMATIONS
+================================= */
+
+@keyframes floating {
+
+    0%, 100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+@keyframes birthdayReveal {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width:600px) {
+
+    .welcome-card {
+        padding: 35px 20px;
+    }
+
+
+    .welcome-card h1 {
+        font-size: 30px;
+    }
+
+
+    .welcome-card h2 {
+        font-size: 18px;
+    }
+
+
+    .birthday-screen {
+        padding-top: 30px;
+    }
+
+
+    .birthday-screen h1 {
+        font-size: 31px;
+    }
+
+
+    .birthday-screen > .birthday-content > h2 {
+        font-size: 23px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .photo-card {
+        width: 280px;
+    }
+
+
+    #message {
+        padding: 25px 20px;
+
+        font-size: 15px;
+
+        line-height: 1.75;
+    }
+
+}
